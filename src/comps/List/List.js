@@ -1,16 +1,16 @@
-import './List.css'
+import './List.css';
 
-const List= (props)=> {
-    console.log (props.itens)
-    return(
-            <div class="List">
-                <label>{props.label}</label>
-                <select required={props.mandatory}>
-                    {props.itens.map(item=> { 
-                        return <option key={item}>{item}</option>
-                    })}
-                </select>
-            </div>
+const List = (props) => {
+    return (
+        <div className="List">
+            <label>{props.label}</label>
+            <select onChange={event => props.aoAtt(event.target.value)} required={props.mandatory} value={props.value}>
+                {props.itens.map(item => {
+                    return <option key={item}>{item}</option>;
+                })}
+            </select>
+        </div>
     );
 }
-export default List
+
+export default List;
